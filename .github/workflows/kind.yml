@@ -27,6 +27,6 @@ jobs:
           echo "==== kubectl get pods -o wide -n kube-system"
           kubectl get pods -o wide -n kube-system
           echo "==== kubelet version"
-          kubelet version
+          kubectl version
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}          
