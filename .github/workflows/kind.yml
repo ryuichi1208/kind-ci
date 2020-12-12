@@ -20,13 +20,13 @@ jobs:
 
       - name: Print Kube info
         run: |
-          echo "==== kubectl cluster-info"
+          echo "==== kubectl cluster-info ===="
           kubectl cluster-info
-          echo "==== kubectl get node -o wide"
+          echo "==== kubectl get node -o wide ===="
           kubectl get node -o wide
-          echo "==== kubectl get pods -o wide -n kube-system"
+          echo "==== kubectl get pods -o wide -n kube-system ===="
           kubectl get pods -o wide -n kube-system
-          echo "==== kubelet version"
+          echo "==== kubelet version ===="
           kubectl version
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}          
