@@ -18,6 +18,7 @@ jobs:
       - name: Print Kube info
         run: |
           kubectl cluster-info
-          kubectl get pods -n kube-system
+          kubectl get node -o wide
+          kubectl get pods -o wide -n kube-system
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}          
