@@ -31,9 +31,12 @@ jobs:
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}          
 
+      - name: Dry run
+        run: |
+          kubectl apply --validate --dry-run -f manifest/nginx.yml
+
       - name: Apply manifest
         run: |
           kubectl apply -f manifest/nginx.yml
           sleep 30
           kubectl get po -o wide
-          curl -v -o /dev/null http://localhost:30000/
