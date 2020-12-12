@@ -30,3 +30,9 @@ jobs:
           kubectl version
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}          
+
+      - name: Apply manifest
+        run: |
+          kubectl apply -f manifest/nginx.yml
+          kubectl get po -o wide
+          curl -v -o /dev/null http://localhost:30000/
