@@ -34,5 +34,6 @@ jobs:
       - name: Apply manifest
         run: |
           kubectl apply -f manifest/nginx.yml
+          sleep 30
           kubectl get po -o wide
           curl -v -o /dev/null http://localhost:30000/
